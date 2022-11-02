@@ -40,9 +40,10 @@
             width: 150px;
             height: 150px;
             border-radius: 100%;
-            background-image: url('https://i.esdrop.com/d/f/2byPAwET4p/QB39XpAzDW.jpg');
+            background-image: url(https://i.esdrop.com/d/f/2byPAwET4p/QB39XpAzDW.jpg);
             background-position: center;
             background-size: cover;
+            border: 2px solid whitesmoke;
         }
 
         .main {
@@ -161,7 +162,7 @@
         function show_review() {
             $.ajax({
                 type: 'GET',
-                url: '/wjpost',
+                url: '/jspost',
                 data: {},
                 success: function (response) {
                     let rows = response['reviews']
@@ -170,7 +171,12 @@
                         let name = rows[i]['name']
                         let review = rows[i]['review']
 
-                        let temp_html = `<tr><td>${name} : ${review}</td></tr>`
+                        let temp_html = `<tr>
+                                    <td>${name} : ${review}</td>
+                                    <td style="width: 20%;">
+                                        <a href="#" onclick="deleteReview('${name}')" class="card-footer-item has-text-danger">삭제</a>
+                                    </td>
+                                </tr>`
                         $('#review_box').append(temp_html)
                     }
                 }
@@ -183,7 +189,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/wjpost',
+                url: '/jspost',
                 data: {name_give: name, review_give: review},
                 success: function (response) {
                     alert(response['msg'])
@@ -191,6 +197,23 @@
                 }
             })
         }
+
+        function deleteReview(name) {
+            if (confirm("정말 삭제하시겠습니까?") == true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/jspost/delete',
+                    data: {name_give: name},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            } else {
+                return false
+            }
+        }
+
 
     </script>
 </head>
@@ -207,10 +230,10 @@
         <div class="info">
             <table class="table table-striped">
                 <tr>
-                    <td class="title" colspan="2">MBTI</td>
+                    <td class="title" colspan="2">나를 네 글자로 정의 한다면?</td>
                 </tr>
                 <tr>
-                    <td colspan="2">- INFJ</td>
+                    <td colspan="2">INFJ</td>
                 </tr>
                 <tr>
                     <td class="title" colspan="2">나의 강점</td>

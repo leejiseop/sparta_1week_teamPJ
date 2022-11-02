@@ -63,7 +63,9 @@
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
 }
-
+* {
+  font-family: 'Jua', sans-serif;
+}
 *,
 *::before,
 *::after {
@@ -87,6 +89,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: linear-gradient(180deg, #FFFFFF 0%, #6b6b6b 100%) fixed;
 }
 
 hr {
@@ -22574,3 +22577,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+  #gif {
+    width: 600px;
+    margin-top: 33px;
+  }

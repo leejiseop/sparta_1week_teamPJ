@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Woojeong Yang">
-    <meta property="og:description" content="내일배움캠프 A반 2조 양우정입니다! 잘 부탁드립니다 :)">
+    <meta property="og:title" content="Hyuna Lee">
+    <meta property="og:description" content="내일배움캠프 A반 2조 이현아입니다! 잘 부탁드립니다 :)">
     <meta property="og:image"
           content="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free_myprofile/%EA%B7%B8%EB%9D%BC%EB%8D%B0%EC%9D%B4%EC%85%98/%EB%B0%94%EB%8B%A4.png">
 
@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Woojeong Yang</title>
+    <title>Hyuna Lee</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
@@ -40,10 +40,9 @@
             width: 150px;
             height: 150px;
             border-radius: 100%;
-            background-image: url(https://velog.velcdn.com/images/yang9652/post/cf0209d3-4571-409a-bbcd-2c6bccddb59a/image.jpg);
+            background-image: url('https://i.esdrop.com/d/f/vJDdQv81DH/4F92Y4BhAN.jpg');
             background-position: center;
             background-size: cover;
-            border: 2px solid whitesmoke;
         }
 
         .main {
@@ -162,7 +161,7 @@
         function show_review() {
             $.ajax({
                 type: 'GET',
-                url: '/wjpost',
+                url: '/hapost',
                 data: {},
                 success: function (response) {
                     let rows = response['reviews']
@@ -171,12 +170,7 @@
                         let name = rows[i]['name']
                         let review = rows[i]['review']
 
-                        let temp_html = `<tr>
-                                    <td>${name} : ${review}</td>
-                                    <td style="width: 20%;">
-                                        <a href="#" onclick="deleteReview('${name}')" class="card-footer-item has-text-danger">삭제</a>
-                                    </td>
-                                </tr>`
+                        let temp_html = `<tr><td>${name} : ${review}</td></tr>`
                         $('#review_box').append(temp_html)
                     }
                 }
@@ -189,7 +183,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/wjpost',
+                url: '/hapost',
                 data: {name_give: name, review_give: review},
                 success: function (response) {
                     alert(response['msg'])
@@ -198,23 +192,6 @@
             })
         }
 
-        function deleteReview(name) {
-            if (confirm("정말 삭제하시겠습니까?") == true) {
-                $.ajax({
-                    type: 'POST',
-                    url: '/wjpost/delete',
-                    data: {name_give: name},
-                    success: function (response) {
-                        alert(response['msg']);
-                        window.location.reload()
-                    }
-                });
-            } else {
-                return false
-            }
-        }
-
-
     </script>
 </head>
 <body>
@@ -222,33 +199,32 @@
 <div class="wrap">
     <div class="wrap1">
         <div class="profile"></div>
-        <h1 class="main">양우정</h1>
-        <p class="sub">내일배움캠프 A반 2조 양우정입니다! <br> spring 개발자가 되고 싶습니다. <br> 잘 부탁드립니다 :)</p>
-        <a style="color:#e8e8e8" href="https://velog.io/@yang9652">개인 블로그</a>
+        <h1 class="main">이현아</h1>
+        <p class="sub">내일배움캠프 A반 2조 이현아입니다! <br> 잘 부탁드립니다 :)</p>
+        <a style="color:#e8e8e8" href="https://always-steadily.tistory.com/">개인 블로그</a>
     </div>
     <div class="wrap2">
         <div class="info">
             <table class="table table-striped">
                 <tr>
-                    <td class="title" colspan="2">나를 네 글자로 정의 한다면?</td>
+                    <td class="title" colspan="2">MBTI</td>
                 </tr>
                 <tr>
-                    <td colspan="2">ISFP</td>
+                    <td colspan="2">- ISFJ</td>
                 </tr>
                 <tr>
                     <td class="title" colspan="2">나의 강점</td>
                 </tr>
                 <tr>
-                    <td colspan="2">- 성실함 <br> - 무던한 성격임 <br> - 대화를 할 때 잘 웃음</td>
+                    <td colspan="2">- 감정의 기복이 없음 <br> - 침착함을 잘 유지함 <br> - 타인의 이야기를 잘 경청함</td>
                 </tr>
                 <tr>
                     <td class="title" colspan="2">나의 협업 스타일</td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        - 사람들의 의견을 잘 수용 합니다.<br>
-                        - 사람들에게 민폐끼치는 것을 싫어해서 맡은 일은 끝까지 해냅니다.
-
+                        주어진 일에 대하여 최선을 다하며 모르는 것이 생기면 먼저 혼자 해결을 해본 후 안되면 팀원들과 공유함,
+                        다른 팀원들에게 도움이 되는 사람이 되기 위해 노력함
                     </td>
                 </tr>
             </table>
