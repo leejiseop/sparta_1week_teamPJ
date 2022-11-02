@@ -1,196 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Jiseop Lee">
+    <meta property="og:description" content="내일배움캠프 A반 2조 이지섭입니다! 잘 부탁드립니다 :)">
+    <meta property="og:image"
+          content="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free_myprofile/%EA%B7%B8%EB%9D%BC%EB%8D%B0%EC%9D%B4%EC%85%98/%EB%B0%94%EB%8B%A4.png">
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Jiseop Lee</title>
     <style>
-      .home_button_image {
-        width: 50px;
-        height: 50px;
-      }
-      .navbar-brand {
-        font-size: 22px;
-      }
-      .nav-link {
-        font-size: 22px;
-      }
-      .jumbotron {
-        padding: 20px;
-      }
-      .image_box {
-        margin: auto;
-        margin-bottom: 20px;
-        width: 150px;
-        height: 150px;
-        border-radius: 30%;
-        overflow: hidden;
-      }
-      .profile {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .lead {
-        text-align: center;
-      }
-      .media_wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .media {
-        margin: 40px;
-        text-align: center;
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-        display: flex;
-        align-items: center;
-      }
-      .mediaimg {
-        width: 100px;
-        height: 100px;
-      }
-      .guestbook {
-        max-width: 500px;
-        margin-top: 0px;
-        margin-right: 10px;
-        width: 70%;
-        font-size: large;
-      }
-      .greeting {
-        text-align: center;
-      }
+        * {
+            font-family: 'Jua', sans-serif;
+        }
 
+        body {
+            height: 100%;
+            background: linear-gradient(180deg, #FFFFFF 0%, #131313 100%) fixed;
+
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            background-image: url('https://i.esdrop.com/d/f/2byPAwET4p/QB39XpAzDW.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .main {
+            color: #FFFFFF;
+            font-size: 150%;
+            margin-top: 10%;
+        }
+
+        .sub {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 100%;
+            font-weight: 200;
+            size: 14px;
+            margin-bottom: 10%;
+        }
+
+        .wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrap1 {
+            float: left;
+            width: 20%;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #452f10;
+            text-decoration: none;
+            border: 1px solid #353432;
+            margin-top: 100px;
+        }
+
+        .wrap2 {
+            float: left;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: 100px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info {
+            width: 520px;
+            border-radius: 15px;
+            background-color: whitesmoke;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #452f10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border: 1px solid #353432;
+            padding-bottom: 30px;
+            padding-top: 30px;
+
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table, td, th {
+            border-collapse: collapse;
+            width: 470px;
+            text-align: left;
+            color: #3f0c00;
+            border-radius: 15px;
+            text-align: center;
+            padding: 7px;
+
+        }
+
+        .title {
+            font-size: 20px;
+            color: #934948;
+            border: 1px solid #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .info {
+            padding: 30px;
+        }
+
+        .mybtn {
+            color: #3f0c00;
+            background-color: #e0e0e0;
+            height: 40px;
+            font-size: 15px;
+        }
+
+        #backbtn {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
     </style>
+    <script>
+        $(document).ready(function () {
+            show_review()
+        });
 
-    <title>내일배움캠프 A반2조</title>
+        function show_review() {
+            $.ajax({
+                type: 'GET',
+                url: '/wjpost',
+                data: {},
+                success: function (response) {
+                    let rows = response['reviews']
 
-  </head>
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+                        let review = rows[i]['review']
 
-  <body>
+                        let temp_html = `<tr><td>${name} : ${review}</td></tr>`
+                        $('#review_box').append(temp_html)
+                    }
+                }
+            })
+        }
 
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="https://coresos-phinf.pstatic.net/a/352cei/b_064Ud018svct7qk7ulwnyf5_t8t258.jpg?type=e1920_std&cors=band" alt="home_button_image" class="home_button_image"> 스파르타코딩클럽</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        function save() {
+            let name = $('#name').val()
+            let review = $('#review').val()
 
-    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item active"">
-            <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://spartaspring.tistory.com/" target="_blank">TIL blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="https://github.com/leejiseop" target="_blank">Github</a>
-        </li>
-      </ul>
+            $.ajax({
+                type: 'POST',
+                url: '/wjpost',
+                data: {name_give: name, review_give: review},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="window.history.back()" id="backbtn" type="button" class="btn btn-secondary">뒤로 가기</button>
+<div class="wrap">
+    <div class="wrap1">
+        <div class="profile"></div>
+        <h1 class="main">이지섭</h1>
+        <p class="sub">내일배움캠프 A반 2조 이지섭입니다! <br>컴퓨터공학과 졸업 후<br>IT 관련 비개발자 직군에서 근무하다 <br>개발자라는 새로운 목표를 가지고<br>내일배움캠프에 참여하게 되었습니다.<br>잘 부탁드립니다 :)</p>
+        <a style="color:#e8e8e8" href="https://spartaspring.tistory.com/">개인 블로그</a>
     </div>
-  </div>
-  </nav>
+    <div class="wrap2">
+        <div class="info">
+            <table class="table table-striped">
+                <tr>
+                    <td class="title" colspan="2">MBTI</td>
+                </tr>
+                <tr>
+                    <td colspan="2">- INFJ</td>
+                </tr>
+                <tr>
+                    <td class="title" colspan="2">나의 강점</td>
+                </tr>
+                <tr>
+                    <td colspan="2">- 긍정적인 마인드 <br> - 처음 본 사람과도 금방 가까워짐 <br> - 가독성 좋은 코드를 작성하기 위해 노력함 </td>
+                </tr>
+                <tr>
+                    <td class="title" colspan="2">나의 협업 스타일</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        - 팀원들과 현재까지 진행상황 공유를 자주 함<br>
+                        - 대화하다 모르는 부분이 있으면 바로바로 질문함<br>
+                        - 의견 제시도 자주 하고 수용도 잘 하는 편<br>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-  <!-- jumbotron -->
-  <div class="jumbotron ml-2">
-    <div class="image_box green">
-      <img src="https://coresos-phinf.pstatic.net/a/352ci6/a_j64Ud018svc15mi7kodw1160_t8t258.jpg?type=e1920_std&cors=band" alt="profile_image" class="profile">
+        <div class="info">
+            <p class="title">방명록을 남겨주세요!</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text">이름</span>
+                <input type="text" id="name" class="form-control"></input>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">방명록</span>
+                <textarea id="review" class="form-control"></textarea>
+            </div>
+            <button onclick="save()" type="button" class="btn mybtn">방명록 남기기</button>
+            <hr style="color: #452f10; width: 100%;">
+            <div class="input-group mb-3">
+                <table class="table table-striped" id="review_box">
+                </table>
+            </div>
+        </div>
     </div>
-    <h1 class="greeting display-5">안녕하세요!</h1>
-    <p class="lead">
-      스파르타코딩클럽 내일배움캠프 4기 <br />
-      Spring 백엔드 개발자 교육과정 A반 이지섭입니다.<br />
-    </p>
-    <p class="lead">
-      MBTI는 INFJ입니다!
-    </p>
-  </div>
-
-  <!-- media object -->
-  <div class="media_wrap">
-    <div class="media">
-      <img src="https://coresos-phinf.pstatic.net/a/352cei/b_064Ud018svct7qk7ulwnyf5_t8t258.jpg?type=e1920_std&cors=band" alt="">
-      <div class="media-body green">
-        <h5>객관적인 자신의 장점</h5>
-        스트레스 받지 않고 긍정적으로 문제를 풀어나갑니다.
-      </div>
-    </div>
-    <div class="media">
-      <div class="media-body">
-        <h5>협업과정에서 자신의 스타일</h5>
-        현재 어떤 작업을 하고있는지 동료들과 적극적으로 공유하는 편입니다.
-      </div>
-      <img src="https://coresos-phinf.pstatic.net/a/352cei/b_064Ud018svct7qk7ulwnyf5_t8t258.jpg?type=e1920_std&cors=band" alt="">
-    </div>
-    <div class="media">
-      <img src="https://coresos-phinf.pstatic.net/a/352cei/b_064Ud018svct7qk7ulwnyf5_t8t258.jpg?type=e1920_std&cors=band" alt="">
-      <div class="media-body">
-        <h5>세번째 제목</h5>
-        세번째 내용 세번째 내용 세번째 내용
-      </div>
-    </div>
-    <div class="media">
-      <div class="media-body">
-        <h5>응원 메세지를 남겨주세요!</h5>
-        전공자이지만 웹개발은 처음입니다. 열심히 배우겠습니다!
-      </div>
-    </div>
-    <div class="media">
-      <div class="media-body">
-        <form>
-          <input
-            class="guestbook"
-            type="text"
-            placeholder=" 방명록 입력"
-            aria-label="guestbook"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            등록
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script
-    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"
-  ></script>
-
-  </body>
+</div>
+</body>
 </html>
