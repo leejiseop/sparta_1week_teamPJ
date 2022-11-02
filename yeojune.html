@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 웹페이지 보이지는 않지만, 필요한 설정을 해두는 곳이에요.
+         우리가 집을 위해 미리 생각 해놓은 것을 적어두는 곳이라고 할 수 있죠!-->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:title" content="여준 - sns프로필"/>
+    <meta property="og:description" content="SNS, 블로그, 카카오톡 바로가기"/>
+    <meta property="og:image" content="screen.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <title>Yoon Profile</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        * {
+            font-family: "Pretendard", serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #FFFFFF 0%, #131313 100%) fixed;
+        }
+        .profile {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 100%;
+
+            border: 2px solid whitesmoke;
+
+            background-image: url(https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/306096742_4851193001671813_6240575092129220724_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=VRfAyB0AJcgAX-pHeQ0&_nc_ht=scontent-gmp1-1.xx&oh=00_AfBGyKpqPiZC3ewdPMeUgzI4HAPsaKDOUfygk4WcjtCmtA&oe=6364D4D5);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .main {
+            color: white;
+            font-size: 20px;
+
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .sub {
+            color: white;
+            font-size: 14px;
+
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+
+        .wrap {
+
+            width: 300px;
+
+            margin: 30px auto 0px auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrap > a {
+            width: 500px;
+            height: 50px;
+
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+
+            font-size: 12px;
+            font-weight: bold;
+            color: #0c0101;
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+
+            box-shadow: 3px 3px 5px 0px black;
+        }
+
+        .wrap > a:hover {
+            background-color: #f2f2f2;
+            font-size: 13px;
+            border: 2px solid black;
+        }
+
+        .mypost {
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 20px auto;
+            background-color: white;
+            box-shadow: 0px 0px 3px 0px black;
+            padding: 20px;
+        }
+
+        .mypost > button {
+            margin-top: 15px;
+        }
+
+        .mycards {
+            width: 95%;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .mycards > .card {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #backbtn {
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        section div+a {
+
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            show_comment()
+        });
+
+        function save_comment() {
+            let name = $('#name').val()
+            let comment = $('#comment').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/yjpost",
+                data: {'name_give': name, 'comment_give': comment},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
+
+        function show_comment() {
+            $('#comment-list').empty()
+            $.ajax({
+                type: "GET",
+                url: "/yjpost",
+                data: {},
+                success: function (response) {
+                    let rows = response['comments']
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+                        let comment = rows[i]['comment']
+
+                        let temp_html = `<div class="card">
+                                            <div class="card-body">
+                                                <blockquote class="blockquote mb-0">
+                                                    <p>${comment}</p>
+                                                    <footer class="blockquote-footer">${name}</footer>
+                                                </blockquote>
+                                            </div>
+                                        </div>`
+                        $('#comment-list').append(temp_html)
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<button onclick="window.history.back()" id="backbtn" type="button" class="btn btn-secondary">뒤로 가기</button>
+
+<div class="wrap">
+    <div class="profile"></div>
+    <h1 class="main">여준</h1>
+    <p class="sub">안녕하세요. 이번에 스파르타 내일배움캠프에 참가하게 된 26살 윤여준 입니다. </p>
+    <a class="myprofile" target="_blank">객관적으로 본 자신의 장점 : 시간 약속을 잘 지킨다. 성실하려고 노력한다. </a>
+    <a class="myprofile" target="_blank">MBTI : ESTJ</a>
+    <a class="myprofile" target="_blank">협업을 하는 과정에서의 나의 스타일 : 소통을 중요시 하고 서로 의견 나누는 걸 좋아 한다. 원할한 소통과 협업을 통해서 좋은 프로젝트를
+        만들고
+        싶어 한다.</a>
+    <a class="myprofile" target="_blank" href="https://achieve-97.tistory.com/">개인 블로그 (클릭 시 이동)</a>
+</div>
+<div class="mypost">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" placeholder="url">
+        <label for="floatingInput">닉네임</label>
+    </div>
+    <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comment"
+                      style="height: 100px"></textarea>
+        <label for="floatingTextarea2">방명록</label>
+    </div>
+    <button onclick="save_comment()" type="button" class="btn btn-dark">방명록 남기기</button>
+</div>
+<div class="mycards" id="comment-list">
+    <div class="card">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>새로운 앨범 너무 멋져요!</p>
+                <footer class="blockquote-footer">호빵맨</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>새로운 앨범 너무 멋져요!</p>
+                <footer class="blockquote-footer">호빵맨</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>새로운 앨범 너무 멋져요!</p>
+                <footer class="blockquote-footer">호빵맨</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+</body>
+</html>

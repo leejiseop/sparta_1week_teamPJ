@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Woojeong Yang">
+    <meta property="og:description" content="내일배움캠프 A반 2조 양우정입니다! 잘 부탁드립니다 :)">
+    <meta property="og:image"
+          content="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free_myprofile/%EA%B7%B8%EB%9D%BC%EB%8D%B0%EC%9D%B4%EC%85%98/%EB%B0%94%EB%8B%A4.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Woojeong Yang</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+
+        body {
+            height: 100%;
+            background: linear-gradient(180deg, #FFFFFF 0%, #131313 100%) fixed;
+
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            background-image: url('https://velog.velcdn.com/images/yang9652/post/cf0209d3-4571-409a-bbcd-2c6bccddb59a/image.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .main {
+            color: #FFFFFF;
+            font-size: 150%;
+            margin-top: 10%;
+        }
+
+        .sub {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 100%;
+            font-weight: 200;
+            size: 14px;
+            margin-bottom: 10%;
+        }
+
+        .wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrap1 {
+            float: left;
+            width: 20%;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #452f10;
+            text-decoration: none;
+            border: 1px solid #353432;
+            margin-top: 100px;
+        }
+
+        .wrap2 {
+            float: left;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: 100px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info {
+            width: 520px;
+            border-radius: 15px;
+            background-color: whitesmoke;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #452f10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border: 1px solid #353432;
+            padding-bottom: 30px;
+            padding-top: 30px;
+
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table, td, th {
+            border-collapse: collapse;
+            width: 470px;
+            text-align: left;
+            color: #3f0c00;
+            border-radius: 15px;
+            text-align: center;
+            padding: 7px;
+
+        }
+
+        .title {
+            font-size: 20px;
+            color: #934948;
+            border: 1px solid #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .info {
+            padding: 30px;
+        }
+
+        .mybtn {
+            color: #3f0c00;
+            background-color: #e0e0e0;
+            height: 40px;
+            font-size: 15px;
+        }
+
+        #backbtn {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            show_review()
+        });
+
+        function show_review() {
+            $.ajax({
+                type: 'GET',
+                url: '/wjpost',
+                data: {},
+                success: function (response) {
+                    let rows = response['reviews']
+
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+                        let review = rows[i]['review']
+
+                        let temp_html = `<tr><td>${name} : ${review}</td></tr>`
+                        $('#review_box').append(temp_html)
+                    }
+                }
+            })
+        }
+
+        function save() {
+            let name = $('#name').val()
+            let review = $('#review').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/wjpost',
+                data: {name_give: name, review_give: review},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="window.history.back()" id="backbtn" type="button" class="btn btn-secondary">뒤로 가기</button>
+<div class="wrap">
+    <div class="wrap1">
+        <div class="profile"></div>
+        <h1 class="main">양우정</h1>
+        <p class="sub">내일배움캠프 A반 2조 양우정입니다! <br> spring 개발자가 되고 싶습니다. <br> 잘 부탁드립니다 :)</p>
+        <a style="color:#e8e8e8" href="https://velog.io/@yang9652">개인 블로그</a>
+    </div>
+    <div class="wrap2">
+        <div class="info">
+            <table class="table table-striped">
+                <tr>
+                    <td class="title" colspan="2">MBTI</td>
+                </tr>
+                <tr>
+                    <td colspan="2">- ISFP</td>
+                </tr>
+                <tr>
+                    <td class="title" colspan="2">나의 강점</td>
+                </tr>
+                <tr>
+                    <td colspan="2">- 성실함 <br> - 무던한 성격임 <br> - 대화를 할 때 잘 웃음 </td>
+                </tr>
+                <tr>
+                    <td class="title" colspan="2">나의 협업 스타일</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        사람들의 의견을 잘 수용하고, 사람들에게 민폐끼치는 것을 싫어해서 맡은 일은 끝까지 해냅니다.
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info">
+            <p class="title">방명록을 남겨주세요!</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text">이름</span>
+                <input type="text" id="name" class="form-control"></input>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">방명록</span>
+                <textarea id="review" class="form-control"></textarea>
+            </div>
+            <button onclick="save()" type="button" class="btn mybtn">방명록 남기기</button>
+            <hr style="color: #452f10; width: 100%;">
+            <div class="input-group mb-3">
+                <table class="table table-striped" id="review_box">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
