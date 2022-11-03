@@ -1,229 +1,281 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- 웹페이지 보이지는 않지만, 필요한 설정을 해두는 곳이에요.
-         우리가 집을 위해 미리 생각 해놓은 것을 적어두는 곳이라고 할 수 있죠!-->
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta property="og:title" content="여준 - sns프로필"/>
-    <meta property="og:description" content="SNS, 블로그, 카카오톡 바로가기"/>
-    <meta property="og:image" content="screen.png"/>
+    <meta property="og:title" content="Yeojune Yoon">
+    <meta property="og:description" content="내일배움캠프 A반 2조 윤여준입니다! 잘 부탁드립니다 :)">
+    <meta property="og:image"
+          content="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free_myprofile/%EA%B7%B8%EB%9D%BC%EB%8D%B0%EC%9D%B4%EC%85%98/%EB%B0%94%EB%8B%A4.png">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <title>Yoon Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Yeojune Yoon</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
         * {
-            font-family: "Pretendard", serif;
+            font-family: 'Jua', sans-serif;
         }
 
         body {
+            height: 100%;
             background: linear-gradient(180deg, #FFFFFF 0%, #131313 100%) fixed;
+
         }
+
         .profile {
-            width: 100px;
-            height: 100px;
-
+            width: 150px;
+            height: 150px;
             border-radius: 100%;
-
-            border: 2px solid whitesmoke;
-
-            background-image: url(https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/306096742_4851193001671813_6240575092129220724_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=VRfAyB0AJcgAX-pHeQ0&_nc_ht=scontent-gmp1-1.xx&oh=00_AfBGyKpqPiZC3ewdPMeUgzI4HAPsaKDOUfygk4WcjtCmtA&oe=6364D4D5);
+            background-image: url(https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/306096742_4851193001671813_6240575092129220724_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=VRfAyB0AJcgAX-pHeQ0&_nc_ht=scontent-gmp1-1.xx&oh=00_AfBGyKpqPiZC3ewdPMeUgzI4HAPsaKDOUfygk4WcjtCmtA&oe=6364D4D5 );
             background-position: center;
             background-size: cover;
+            border: 2px solid whitesmoke;
         }
 
         .main {
-            color: white;
-            font-size: 20px;
-
-            margin-top: 30px;
-            margin-bottom: 10px;
+            color: #FFFFFF;
+            font-size: 150%;
+            margin-top: 10%;
         }
 
         .sub {
-            color: white;
-            font-size: 14px;
-
-            margin-top: 0px;
-            margin-bottom: 30px;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 100%;
+            font-weight: 200;
+            size: 14px;
+            margin-bottom: 10%;
         }
 
         .wrap {
+            display: flex;
+            justify-content: center;
+        }
 
-            width: 300px;
-
-            margin: 30px auto 0px auto;
-
+        .wrap1 {
+            float: left;
+            width: 20%;
+            height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-
-        .wrap > a {
-            width: 500px;
-            height: 50px;
-
-            background-color: white;
-            border-radius: 8px;
-            margin-bottom: 10px;
-
-            font-size: 12px;
+            border-radius: 30px;
+            margin-bottom: 16px;
+            font-size: 16px;
             font-weight: bold;
-            color: #0c0101;
+            color: #452f10;
+            text-decoration: none;
+            border: 1px solid #353432;
+            margin-top: 100px;
+        }
 
-
+        .wrap2 {
+            float: left;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: 100px;
+            width: 500px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+        }
+
+        .info {
+            width: 520px;
+            border-radius: 15px;
+            background-color: whitesmoke;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #452f10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
+            border: 1px solid #353432;
+            padding-bottom: 30px;
+            padding-top: 30px;
 
-            box-shadow: 3px 3px 5px 0px black;
         }
 
-        .wrap > a:hover {
-            background-color: #f2f2f2;
-            font-size: 13px;
-            border: 2px solid black;
+        table {
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .mypost {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto 20px auto;
-            background-color: white;
-            box-shadow: 0px 0px 3px 0px black;
-            padding: 20px;
+        table, td, th {
+            border-collapse: collapse;
+            width: 470px;
+            text-align: left;
+            color: #3f0c00;
+            border-radius: 15px;
+            text-align: center;
+            padding: 7px;
+
         }
 
-        .mypost > button {
-            margin-top: 15px;
+        .title {
+            font-size: 20px;
+            color: #934948;
+            border: 1px solid #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
 
-        .mycards {
-            width: 95%;
-            max-width: 500px;
-            margin: auto;
+        .info {
+            padding: 30px;
         }
 
-        .mycards > .card {
-            margin-top: 10px;
-            margin-bottom: 10px;
+        .mybtn {
+            color: #3f0c00;
+            background-color: #e0e0e0;
+            height: 40px;
+            font-size: 15px;
         }
 
         #backbtn {
             margin-left: 20px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
-        section div+a {
-
-        }
+        .repair {}
     </style>
     <script>
         $(document).ready(function () {
-            show_comment()
+            show_review()
         });
 
-        function save_comment() {
-            let name = $('#name').val()
-            let comment = $('#comment').val()
-
+        function show_review() {
             $.ajax({
-                type: "POST",
-                url: "/yjpost",
-                data: {'name_give': name, 'comment_give': comment},
-                success: function (response) {
-                    alert(response["msg"])
-                    window.location.reload()
-                }
-            });
-        }
-
-        function show_comment() {
-            $('#comment-list').empty()
-            $.ajax({
-                type: "GET",
-                url: "/yjpost",
+                type: 'GET',
+                url: '/yjpost',
                 data: {},
                 success: function (response) {
-                    let rows = response['comments']
+                    let rows = response['reviews']
+
                     for (let i = 0; i < rows.length; i++) {
                         let name = rows[i]['name']
-                        let comment = rows[i]['comment']
+                        let review = rows[i]['review']
 
-                        let temp_html = `<div class="card">
-                                            <div class="card-body">
-                                                <blockquote class="blockquote mb-0">
-                                                    <p>${comment}</p>
-                                                    <footer class="blockquote-footer">${name}</footer>
-                                                </blockquote>
-                                            </div>
-                                        </div>`
-                        $('#comment-list').append(temp_html)
+                        let temp_html = `<tr>
+                                    <td>${name} : ${review}</td>
+                                    <td style="width: 15%;">
+                                        <a href="#" onclick="deleteReview('${name}')"
+                                        class="card-footer-item has-text-danger">삭제</a>
+
+                                    </td>
+                                </tr>`
+                        $('#review_box').append(temp_html)
                     }
                 }
-            });
+            })
         }
+
+        function save() {
+            let name = $('#name').val()
+            let review = $('#review').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/yjpost',
+                data: {name_give: name, review_give: review},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+
+         function deleteReview(name) {
+            if (confirm("정말 삭제하시겠습니까?") == true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/yjpost/delete',
+                    data: {name_give: name},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            } else {
+                return false
+            }
+        }
+
     </script>
 </head>
 <body>
 <button onclick="window.history.back()" id="backbtn" type="button" class="btn btn-secondary">뒤로 가기</button>
-
 <div class="wrap">
-    <div class="profile"></div>
-    <h1 class="main">여준</h1>
-    <p class="sub">안녕하세요. 이번에 스파르타 내일배움캠프에 참가하게 된 26살 윤여준 입니다. </p>
-    <a class="myprofile" target="_blank">객관적으로 본 자신의 장점 : 시간 약속을 잘 지킨다. 성실하려고 노력한다. </a>
-    <a class="myprofile" target="_blank">MBTI : ESTJ</a>
-    <a class="myprofile" target="_blank">협업을 하는 과정에서의 나의 스타일 : 소통을 중요시 하고 서로 의견 나누는 걸 좋아 한다. 원할한 소통과 협업을 통해서 좋은 프로젝트를
-        만들고
-        싶어 한다.</a>
-    <a class="myprofile" target="_blank" href="https://achieve-97.tistory.com/">개인 블로그 (클릭 시 이동)</a>
-</div>
-<div class="mypost">
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" placeholder="url">
-        <label for="floatingInput">닉네임</label>
+    <div class="wrap1">
+        <div class="profile"></div>
+        <h1 class="main">윤여준</h1>
+        <p class="sub">내일배움캠프 A반 2조 윤여준 입니다!<br>
+                       모두 열심히 해서 수료 후 좋은 직장에서 만나요 😉 <br>
+                       잘 부탁드립니다 :)</p>
+        <a style="color:#e8e8e8" href="https://achieve-97.tistory.com/">개인 블로그</a>
     </div>
-    <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="comment"
-                      style="height: 100px"></textarea>
-        <label for="floatingTextarea2">방명록</label>
-    </div>
-    <button onclick="save_comment()" type="button" class="btn btn-dark">방명록 남기기</button>
-</div>
-<div class="mycards" id="comment-list">
-    <div class="card">
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p>새로운 앨범 너무 멋져요!</p>
-                <footer class="blockquote-footer">호빵맨</footer>
-            </blockquote>
+    <div class="wrap2">
+        <div class="info">
+            <table class="table table-striped">
+                <tr>
+                    <td class="title" colspan="2">나를 네 글자로 정의 한다면?</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        '이팔청춘'<br>
+                        - 의미 : 본래 뜻은 열여섯 살 전후 어린 아이지만 그런 뜻이 아니라 20대 부터 80대 혹은 그 이상까지 도전하는 삶을 살고 싶어서
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title" colspan="2">나의 강점</td>
+                </tr>
+                <tr>
+                    <td colspan="2">- 시간약속을 잘 지킨다. <br> - 성실하려고 노력한다. <br> - 공감 능력이 좋다.</td>
+                </tr>
+                <tr>
+                    <td class="title" colspan="2">나의 협업 스타일</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        - 소통을 중요시 하고 서로 의견 나누는 걸 좋아한다. <br>
+                        - 원활한 소통과 협업을 통해서 좋은 결과물은 만들고 싶어한다.
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p>새로운 앨범 너무 멋져요!</p>
-                <footer class="blockquote-footer">호빵맨</footer>
-            </blockquote>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p>새로운 앨범 너무 멋져요!</p>
-                <footer class="blockquote-footer">호빵맨</footer>
-            </blockquote>
+
+        <div class="info">
+            <p class="title">방명록을 남겨주세요!</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text">이름</span>
+                <input type="text" id="name" class="form-control"></input>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">방명록</span>
+                <textarea id="review" class="form-control"></textarea>
+            </div>
+            <button onclick="save()" type="button" class="btn mybtn">방명록 남기기</button>
+            <hr style="color: #452f10; width: 100%;">
+            <div class="input-group mb-3">
+                <table class="table table-striped" id="review_box">
+                </table>
+            </div>
         </div>
     </div>
 </div>

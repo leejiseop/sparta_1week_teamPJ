@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:title" content="유성재">
+    <meta property="og:description" content="내일배움캠프 A반 2조 유성재입니다! 잘 부탁드립니다 :)">
+    <meta property="og:image"
+          content="ttps://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPEVvA%2FbtrP4tR4oo1%2FeDQwFi7wkGOJdgTcMcPby0%2Fimg.jpg">
 
-    <meta property="og:title" content="팀원페이지: 유성재">
-    <meta property="og:description" content="미니 프로젝트">
-    <meta property="og:image" content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPEVvA%2FbtrP4tR4oo1%2FeDQwFi7wkGOJdgTcMcPby0%2Fimg.jpg">
-    <!-- OG 태그 수정했습니다 !-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>팀원페이지: 유성재</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>팀원 페이지 : 유성재</title>
     <style>
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
@@ -34,9 +40,10 @@
             width: 150px;
             height: 150px;
             border-radius: 100%;
-            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPEVvA%2FbtrP4tR4oo1%2FeDQwFi7wkGOJdgTcMcPby0%2Fimg.jpg');
+            background-image: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPEVvA%2FbtrP4tR4oo1%2FeDQwFi7wkGOJdgTcMcPby0%2Fimg.jpg);
             background-position: center;
             background-size: cover;
+            border: 2px solid whitesmoke;
         }
 
         .main {
@@ -155,7 +162,7 @@
         function show_review() {
             $.ajax({
                 type: 'GET',
-                url: '/hapost',
+                url: '/sjpost',
                 data: {},
                 success: function (response) {
                     let rows = response['reviews']
@@ -164,7 +171,12 @@
                         let name = rows[i]['name']
                         let review = rows[i]['review']
 
-                        let temp_html = `<tr><td>${name} : ${review}</td></tr>`
+                        let temp_html = `<tr>
+                                    <td>${name} : ${review}</td>
+                                    <td style="width: 20%;">
+                                        <a href="#" onclick="deleteReview('${name}')" class="card-footer-item has-text-danger">삭제</a>
+                                    </td>
+                                </tr>`
                         $('#review_box').append(temp_html)
                     }
                 }
@@ -177,7 +189,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/hapost',
+                url: '/sjpost',
                 data: {name_give: name, review_give: review},
                 success: function (response) {
                     alert(response['msg'])
@@ -185,6 +197,23 @@
                 }
             })
         }
+
+        function deleteReview(name) {
+            if (confirm("정말 삭제하시겠습니까?") == true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/sjpost/delete',
+                    data: {name_give: name},
+                    success: function (response) {
+                        alert(response['msg']);
+                        window.location.reload()
+                    }
+                });
+            } else {
+                return false
+            }
+        }
+
 
     </script>
 </head>
@@ -201,23 +230,25 @@
         <div class="info">
             <table class="table table-striped">
                 <tr>
-                    <td class="title" colspan="2">MBTI</td>
+                    <td class="title" colspan="2">나를 네 글자로 정의 한다면?</td>
                 </tr>
                 <tr>
-                    <td colspan="2">INTJ</td>
+                    <td colspan="2">'무한도전'<br>
+                        -의미 : 낯선 곳에 스스로를 던져 놓고 그 과정에서 성장하는 것을 좋아하기 때문에
+                    </td>
                 </tr>
                 <tr>
                     <td class="title" colspan="2">나의 강점</td>
                 </tr>
                 <tr>
-                    <td colspan="2">약속을 중요하게 생각하고 꼭 지킵니다.</td>
+                    <td colspan="2">- 약속을 중요하게 생각하고 꼭 지킵니다.</td>
                 </tr>
                 <tr>
                     <td class="title" colspan="2">나의 협업 스타일</td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        경청 후 의견 제시(먼저 나서지 않는 편)
+                        - 경청 후 의견 제시(먼저 나서지 않는 편)
                     </td>
                 </tr>
             </table>
