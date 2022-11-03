@@ -153,6 +153,7 @@
             margin-left: 20px;
             margin-top: 10px;
         }
+        .repair {}
     </style>
     <script>
         $(document).ready(function () {
@@ -173,8 +174,10 @@
 
                         let temp_html = `<tr>
                                     <td>${name} : ${review}</td>
-                                    <td style="width: 20%;">
-                                        <a href="#" onclick="deleteReview('${name}')" class="card-footer-item has-text-danger">삭제</a>
+                                    <td style="width: 15%;">
+                                        <a href="#" onclick="deleteReview('${name}')"
+                                        class="card-footer-item has-text-danger">삭제</a>
+
                                     </td>
                                 </tr>`
                         $('#review_box').append(temp_html)
@@ -234,7 +237,10 @@
                     <td class="title" colspan="2">나를 네 글자로 정의 한다면?</td>
                 </tr>
                 <tr>
-                    <td colspan="2">ESTJ</td>
+                    <td colspan="2">
+                        '이팔청춘'<br>
+                        - 의미 : 본래 뜻은 열여섯 살 전후 어린 아이지만 그런 뜻이 아니라 20대 부터 80대 혹은 그 이상까지 도전하는 삶을 살고 싶어서
+                    </td>
                 </tr>
                 <tr>
                     <td class="title" colspan="2">나의 강점</td>
